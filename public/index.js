@@ -61,6 +61,9 @@ document
   .querySelector('.controls__size-button')
   .addEventListener('click', () => {
     size = document.querySelector('.controls__size-input').value;
+    if (size > 30) {
+      size = 30;
+    }
     life = generateTable(size);
     paintTable(life);
   });
