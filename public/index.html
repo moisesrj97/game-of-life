@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The game of Moisés</title>
+    <link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 class="header__title">
+          The game of <span class="header__title-cross">Life</span> Moisés
+        </h1>
+      </header>
+      <section class="gameTable"></section>
+      <section class="controls">
+        <button class="controls__random">Random!</button>
+        <div class="controls__size">
+          <input
+            type="number"
+            min="5"
+            max="30"
+            value="10"
+            name=""
+            id=""
+            class="controls__size-input"
+          />
+          <button class="controls__size-button">Change size! / Clear</button>
+        </div>
+
+        <div class="controls__speed">
+          <p class="controls__speed-text">Speed:</p>
+          <input
+            type="range"
+            min="50"
+            max="500"
+            value="300"
+            name=""
+            id=""
+            class="controls__speed-input controls__speed-input--range"
+          />
+        </div>
+        <button class="controls__play">Play / Pause</button>
+      </section>
+      <footer>
+        <address class="address">
+          Made with 💚 by
+          <a class="address__link" href="https://github.com/moisesrj97"
+            >Moisés</a
+          >
+        </address>
+      </footer>
+    </div>
+
+    <script src="index.js" type="module"></script>
+  </body>
+</html>

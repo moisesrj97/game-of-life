@@ -1,0 +1,35 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "lint": "eslint",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --collect-coverage",
+    "test:ES6": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:ES6:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll",
+    "test:ES6:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --collect-coverage",
+    "sass": "sass -w src/sass/style.scss public/style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jest": "^25.0.5",
+    "jest": "^27.2.5"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "dependencies": {
+    "sass": "^1.43.2"
+  }
+}
