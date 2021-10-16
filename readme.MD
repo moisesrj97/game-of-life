@@ -6,4 +6,4 @@ A little game based in [Conway's Game of Life](https://en.wikipedia.org/wiki/Con
 Try it on [Netlify](https://moises-rodriguez-game-of-life.netlify.app/)!   
 
 Known bugs:
-1. Can´t limit size number input in mobile
+1. Can´t limit size number input in mobile --> Fixed
