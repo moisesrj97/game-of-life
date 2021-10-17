@@ -7,6 +7,8 @@ import {
   generateRandom,
 } from './helpers.js';
 
+import library from './library.js';
+
 let speed = 100;
 let size = 10;
 // 0: dead | 1:live //
@@ -55,15 +57,24 @@ const playPause = () => {
 document.querySelector('.controls__play').addEventListener('click', (evt) => {
   playPause();
   evt.target.classList.toggle('controls__play--active');
+  if (evt.target.innerHTML === `Pause <i class="far fa-pause-circle"></i>`) {
+    evt.target.innerHTML = `Play <i class="far fa-play-circle"></i>`;
+  } else {
+    evt.target.innerHTML = `Pause <i class="far fa-pause-circle"></i>`;
+  }
 });
 
 document
   .querySelector('.controls__size-button')
   .addEventListener('click', () => {
-    size = document.querySelector('.controls__size-input').value;
-    if (size > 30) {
-      size = 30;
-    }
+    life = generateTable(size);
+    paintTable(life);
+  });
+
+document
+  .querySelector('.controls__speed-input--range--simple')
+  .addEventListener('change', (evt) => {
+    size = evt.target.value;
     life = generateTable(size);
     paintTable(life);
   });
@@ -73,9 +84,60 @@ document
   .addEventListener('change', (evt) => {
     const value = evt.target.value;
     speed = value;
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
+      playPause();
+    }
   });
 
 document.querySelector('.controls__random').addEventListener('click', () => {
   life = generateRandom(size);
   paintTable(life);
+});
+
+document.querySelector('.fa-question-circle').addEventListener('click', () => {
+  document.querySelector('.info').style.visibility = 'visible';
+});
+
+document.querySelector('.info__close').addEventListener('click', () => {
+  document.querySelector('.info').style.visibility = 'hidden';
+});
+
+document.querySelector('.fa-book').addEventListener('click', () => {
+  document.querySelector('.library').style.visibility = 'visible';
+});
+
+document.querySelector('.library__close').addEventListener('click', () => {
+  document.querySelector('.library').style.visibility = 'hidden';
+});
+
+for (const element in library) {
+  const container = document.createElement('div');
+  container.classList.add('library__gallery-item');
+  const title = document.createElement('h1');
+  title.classList.add('library__gallery-title');
+  title.innerText = library[element].name;
+  const description = document.createElement('p');
+  description.classList.add('library__gallery-description');
+  description.innerText = library[element].description;
+  const image = document.createElement('img');
+  image.src = library[element].url;
+  image.alt = `Game of life ${element}`;
+  image.classList.add('library__gallery-image');
+  image.id = element;
+  container.appendChild(title);
+  container.appendChild(image);
+  container.appendChild(description);
+  document.querySelector('.library__gallery').appendChild(container);
+}
+
+const images = document.querySelectorAll('.library__gallery-item');
+
+images.forEach((e) => {
+  e.addEventListener('click', (evt) => {
+    life = library[evt.target.id].pattern;
+    paintTable(life);
+    document.querySelector('.library').style.visibility = 'hidden';
+  });
 });

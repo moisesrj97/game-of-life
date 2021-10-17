@@ -7,44 +7,108 @@
     <title>The game of Moisés</title>
     <link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <div class="container">
       <header class="header">
+        <i class="fas fa-book header__icon"></i>
         <h1 class="header__title">
-          The game of <span class="header__title-cross">Life</span> Moisés
+          The game of <span class="header__title-cross">Life</span> Moisés 🦠
         </h1>
+        <i class="far fa-question-circle header__icon"></i>
       </header>
       <section class="gameTable"></section>
       <section class="controls">
         <button class="controls__random">Random!</button>
         <div class="controls__size">
+          <p class="controls__speed-text">Size:</p>
           <input
-            type="number"
+            type="range"
             min="5"
-            max="30"
+            max="50"
             value="10"
             name=""
             id=""
-            class="controls__size-input"
+            class="
+              controls__size-input
+              controls__speed-input--range
+              controls__speed-input--range--simple
+            "
           />
-          <button class="controls__size-button">Change size! / Clear</button>
         </div>
-
+        <button class="controls__size-button">Clear</button>
         <div class="controls__speed">
           <p class="controls__speed-text">Speed:</p>
           <input
             type="range"
-            min="50"
-            max="500"
+            min="10"
+            max="1000"
             value="300"
             name=""
             id=""
             class="controls__speed-input controls__speed-input--range"
           />
         </div>
-        <button class="controls__play">Play / Pause</button>
+        <button class="controls__play">
+          Play <i class="far fa-play-circle"></i>
+        </button>
       </section>
+      <aside class="info">
+        <aside class="info__close">X</aside>
+        <h2 class="info__title">The game of Moisés</h2>
+        <section class="info__text">
+          <p class="info__text-p">
+            Hi! I´m Moisés, the developer of this little game, based on
+            <a
+              class="info__text-link"
+              href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
+              >Conway's Game of Life</a
+            >.
+          </p>
+          <p class="info__text-p">It has four basic rules:</p>
+          <ol class="info__text-ol">
+            <li class="info__text-li">
+              Any live cell with fewer than two live neighbours dies, as if by
+              underpopulation.
+            </li>
+            <li class="info__text-li">
+              Any live cell with two or three live neighbours lives on to the
+              next generation.
+            </li>
+            <li class="info__text-li">
+              Any live cell with more than three live neighbours dies, as if by
+              overpopulation.
+            </li>
+            <li class="info__text-li">
+              Any dead cell with exactly three live neighbours becomes a live
+              cell, as if by reproduction.
+            </li>
+          </ol>
+          <p class="info__text-p">
+            Why don´t you draw some cells and hit the play button?
+          </p>
+          <p class="info__text-p">
+            You could also navigate the library and try some pre-made figures!
+          </p>
+        </section>
+        <section class="info__link">
+          <a href=">https://github.com/moisesrj97"
+            ><i class="fab fa-github info__link"></i>
+          </a>
+        </section>
+      </aside>
+      <aside class="library">
+        <p class="library__close">X</p>
+        <h2 class="library__title">Welcome to the Library!</h2>
+        <p class="library__text">Click on some design to import it</p>
+        <div class="library__gallery"></div>
+      </aside>
       <footer>
         <address class="address">
           Made with 💚 by

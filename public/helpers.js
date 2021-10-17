@@ -42,6 +42,7 @@ export const makePaintable = (life) => {
       }
 
       evt.target.classList.toggle('gameTable__el--alive');
+      console.log(life);
     });
   });
 };

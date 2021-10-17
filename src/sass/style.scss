@@ -13,12 +13,22 @@ body {
 }
 
 .header {
+  width: 100%;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   &__title {
     color: white;
     text-align: center;
     &-cross {
       text-decoration: line-through;
     }
+  }
+  &__icon {
+    color: white;
+    font-size: 1.7rem;
+    cursor: pointer;
   }
 }
 
@@ -63,6 +73,7 @@ body {
   row-gap: 10px;
   &__play {
     padding: 10px;
+    min-width: 125px;
     color: white;
     background-color: transparent;
     font-weight: bold;
@@ -70,6 +81,10 @@ body {
     border: 2px solid white;
     border-radius: 10px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
     &--active {
       background-color: #00ff40;
       color: black;
@@ -121,6 +136,9 @@ body {
             box-shadow: #00ff40 0px 0px 5px 3px;
           }
         }
+        &--simple {
+          direction: ltr;
+        }
       }
     }
     &-text {
@@ -155,6 +173,114 @@ body {
   }
 }
 
+.info {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 40px;
+  border: 5px solid white;
+  background-color: #10002dcc;
+  border-radius: 30px;
+  color: white;
+  visibility: hidden;
+  overflow-y: scroll;
+
+  &__close {
+    font-size: 3rem;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  &__text {
+    font-size: 1.1rem;
+    padding: 10px 0;
+    &-p {
+      padding: 10px 0;
+    }
+  }
+  &__text-link {
+    color: rgb(0, 255, 64);
+  }
+  &__text-li {
+    margin-left: 30px;
+  }
+  &__link {
+    font-size: 3rem;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.719);
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.library {
+  @extend .info;
+  overflow-y: hidden;
+  &__close {
+    @extend .info__close;
+  }
+  &__title {
+    text-align: center;
+  }
+  &__text {
+    text-align: center;
+  }
+  &__gallery {
+    height: 80%;
+    width: 80%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &::-webkit-scrollbar {
+      width: 10px; /*Si es barra vertical*/
+    }
+    &::-webkit-scrollbar-track {
+      background: #f1f1f177;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgb(0, 255, 13);
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: rgb(6, 184, 0);
+    }
+    &-item {
+      cursor: pointer;
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 30px;
+      margin: 10px;
+      border: 1px solid white;
+      border-radius: 20px;
+    }
+    &-title {
+      text-align: center;
+      text-decoration: underline;
+    }
+    &-image {
+      height: 150px;
+      margin: 10px 0;
+    }
+    &-description {
+      text-align: center;
+    }
+  }
+}
+
 @media (max-width: 1400px) {
   .gameTable {
     width: 40%;
@@ -171,11 +297,32 @@ body {
   .gameTable {
     width: 60%;
   }
+  .library {
+    padding: 5px;
+  }
+  .library__gallery {
+    width: 95%;
+  }
+  .library__gallery-item {
+    width: 95%;
+  }
+  .library__gallery-image {
+    width: 100%;
+    aspect-ratio: 1;
+  }
 }
 
 @media (max-width: 600px) {
   .gameTable {
     width: 80%;
+  }
+  .header {
+    &__title {
+      font-size: 1.5rem;
+    }
+    &__icon {
+      font-size: 1.2rem;
+    }
   }
 }
 
