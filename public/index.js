@@ -56,11 +56,12 @@ const playPause = () => {
 
 document.querySelector('.controls__play').addEventListener('click', (evt) => {
   playPause();
-  evt.target.classList.toggle('controls__play--active');
-  if (evt.target.innerHTML === `Pause <i class="far fa-pause-circle"></i>`) {
-    evt.target.innerHTML = `Play <i class="far fa-play-circle"></i>`;
+  const button = document.querySelector('.controls__play');
+  button.classList.toggle('controls__play--active');
+  if (button.innerHTML === `Pause <i class="far fa-pause-circle"></i>`) {
+    button.innerHTML = `Play <i class="far fa-play-circle"></i>`;
   } else {
-    evt.target.innerHTML = `Pause <i class="far fa-pause-circle"></i>`;
+    button.innerHTML = `Pause <i class="far fa-pause-circle"></i>`;
   }
 });
 
